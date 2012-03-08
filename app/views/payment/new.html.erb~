@@ -1,0 +1,34 @@
+<center><%= form_for :payment, :url=> {:action=>"create"} do |f| %>
+
+Type of Card*
+<div><%= f.select:card_type, Payment::TYPE %></div><br><br>
+
+<div><%= f.label :Address %><br><br>
+<%= f.text_field :address %></div><br><br>
+
+<div><%= f.label :card_number %><br><br>
+<%= f.text_field :card_no %></div><br><br>
+
+<div><%= f.label :card_verification %><br><br>
+<%= f.text_field :card_verification %></div><br><br>
+
+<div><%= f.label :Expiry_date_month %><br><br>
+<%= f.text_field :expiry_date_month %></div><br><br>
+
+<div><%= f.label :Expiry_date_year %><br><br>
+<%= f.text_field :expiry_date_year %></div><br><br>
+
+<div><%= f.label :First_name %><br><br>
+<%= f.text_field :first_name %></div><br><br>
+
+<div><%= f.label :Last_name %><br><br>
+<%= f.text_field :last_name %></div><br><br>
+
+<div><%= f.label :Amount %><br><br>
+<%= f.text_field :amount %></div><br><br>
+
+<%=f.submit "MAKE PAYMENT"%><br><br>
+<%end%>
+
+<a href="//overview"><b>Back</b></a></center>
+

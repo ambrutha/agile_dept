@@ -1,0 +1,9 @@
+class Addcolumntouser < ActiveRecord::Migration
+  def up
+	add_column :orders, :integer, :user_id
+  end
+
+  def down
+	remove_column :orders, :integer, :user_id
+  end
+end

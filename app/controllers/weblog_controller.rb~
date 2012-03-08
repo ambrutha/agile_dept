@@ -1,0 +1,7 @@
+class WeblogController < ApplicationController::Base
+   def destroy
+      @weblog = Order.find(params[:id])
+      @weblog.destroy
+      logger.info("#{Time.now} Destroyed Weblog ID ##{@weblog.id}!")
+    end
+end

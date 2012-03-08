@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agile</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+<link href="/assets/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="store">
+<div id="banner">
+<%= image_tag("logo.png" ) %>
+<%= @page_title || "Pragmatic Book Shop" %>
+</div>
+<div id="columns">
+<div id="side">
+<%if @cart %>
+<%= hidden_div_if(@cart.line_items.empty?, :id => "cart" ) do %>
+<%= render @cart %>
+<% end %>
+<% end %>
+
+<a href="http://www..../faq"><b>QUESTIONS</b></a><br /><br><br>
+<a href="http://www..../news"><b>NEWS</b></a><br /><br><br>
+<a href="http://www..../contact"><b>CONTACT</b></a><br /><br><br>
+<% if session[:user_id]%>
+<% if session[:user_id] == 2 %><br />
+<a href="/admin"><b>User Order</b><br /><br><br>
+<%= link_to 'Orders', orders_path %><br />
+<%= link_to 'Products', products_path %><br />
+<%= link_to 'Users', users_path%><br /><br />
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<%else%>
+<%= link_to 'Product History', orders_path %><br />
+<%= link_to 'Edit Profile', edit_user_path(session[:user_id]) %><br />
+<%= button_to 'Logout', logout_path, :method => :delete %>
+<% end %>
+<%end%>
+
+</div>
+<div id="main">
+<%= yield %>
+</div>
+</div>
+</body>
+</html>
+
